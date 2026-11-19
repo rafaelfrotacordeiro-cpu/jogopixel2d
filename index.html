@@ -1,0 +1,80 @@
+<!<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Defensor Retrô - Arcade 8-Bit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="arcade-cabinet">
+    <header class="hud">
+      <div class="hud-item">
+        <span class="hud-label">PONTOS</span>
+        <span id="score" class="hud-value cyan">000000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">RECORDE</span>
+        <span id="high-score" class="hud-value yellow">000000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">FASE</span>
+        <span id="level" class="hud-value green">01</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">VIDAS</span>
+        <span id="lives" class="hud-value magenta">♥♥♥</span>
+      </div>
+      <button id="sound-btn" class="arcade-btn small" type="button" aria-label="Alternar som">
+        SOM: ON
+      </button>
+    </header>
+
+    <section class="crt-screen">
+      <canvas id="gameCanvas" width="600" height="660"></canvas>
+
+      <!-- Tela Inicial -->
+      <div id="start-overlay" class="overlay active">
+        <p class="subtitle">INSERT COIN • 1 PLAYER</p>
+        <h1 class="game-title">DEFENSOR<br /><span>RETRÔ</span></h1>
+        <ul class="legend">
+          <li><span class="dot pink"></span> OVNI BÔNUS = +300 PTS</li>
+          <li><span class="dot magenta"></span> INVASOR ELITE = 40 PTS</li>
+          <li><span class="dot cyan"></span> INVASOR MÉDIO = 20 PTS</li>
+          <li><span class="dot green"></span> INVASOR BASE = 10 PTS</li>
+        </ul>
+        <button id="start-btn" class="arcade-btn primary" type="button">INICIAR JOGO</button>
+        <p class="controls-hint">SETAS / A-D: MOVER • ESPAÇO: ATIRAR • P: PAUSAR</p>
+      </div>
+
+      <!-- Tela de Pausa -->
+      <div id="pause-overlay" class="overlay">
+        <h2 class="overlay-title yellow">JOGO PAUSADO</h2>
+        <button id="resume-btn" class="arcade-btn primary" type="button">CONTINUAR</button>
+      </div>
+
+      <!-- Tela de Game Over -->
+      <div id="gameover-overlay" class="overlay">
+        <h2 class="overlay-title magenta">GAME OVER</h2>
+        <p class="final-stat">PONTUAÇÃO FINAL: <span id="final-score" class="cyan">0</span></p>
+        <p id="new-record-msg" class="record-badge hidden">★ NOVO RECORDE! ★</p>
+        <button id="restart-btn" class="arcade-btn primary" type="button">JOGAR NOVAMENTE</button>
+      </div>
+    </section>
+
+    <!-- Controles Touch / Mouse para Celular -->
+    <footer class="touch-controls">
+      <div class="dpad">
+        <button id="btn-left" class="control-btn" type="button" aria-label="Mover para esquerda">◀</button>
+        <button id="btn-right" class="control-btn" type="button" aria-label="Mover para direita">▶</button>
+      </div>
+      <button id="btn-fire" class="control-btn fire" type="button">ATIRAR</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
